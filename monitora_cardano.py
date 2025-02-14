@@ -1,10 +1,12 @@
+
 import requests
 from time import sleep
 
 # Configuração
 WA_NUMBER = "5516993379492"  # Número de WhatsApp (55 + DDD + número)
 API_KEY = "1271569"  # Substitua pela sua chave real do CallMeBot
-THRESHOLD = 4.65  # Preço para definir alta ou baixa
+ALTA = float(input('Digite rompimento da alta')) # Preço para definir alta
+BAIXA = float(input('Digite rompimento da alta'))  # Preço para definir baixa
 
 def notifica_alta():
     """Envia uma notificação via WhatsApp quando o preço do ADA sobe."""
@@ -59,15 +61,17 @@ while True:
         qtde_atualizacao += 1
         print('-' * 50)
         print(f'📊 Atualização nº {qtde_atualizacao}')
+        print(f'Rompimento de alta',ALTA)
         print(f'Preço do ADA: R$ {ada_price:.2f}')
+        print(f'Rompimento de baixa',BAIXA)
         print('-' * 50)
 
-        if ada_price >= THRESHOLD:
+        if ada_price >= ALTA:
             print('📈 Alta detectada!')
             notifica_alta()
-        else:
+        if ada_price <= BAIXA:
             print('📉 Baixa detectada!')
-            notifica_baixa()
+            #notifica_baixa()
 
     else:
         qtde_erros += 1
