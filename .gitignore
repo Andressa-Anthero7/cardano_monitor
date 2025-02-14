@@ -1,0 +1,27 @@
+# Arquivos do Python
+*.pyc
+*.pyo
+__pycache__/
+*.sqlite3
+
+# Configuração de ambiente virtual
+venv/
+.na-venv/
+
+# Logs e arquivos temporários
+*.log
+*.out
+*.pid
+*.swp
+*.swo
+*.DS_Store
+
+# Configurações sensíveis
+.env
+config.json
+
+# Django
+db.sqlite3
+/media/
+staticfiles/
+*.secret
